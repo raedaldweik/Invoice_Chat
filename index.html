@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Embedded Streamlit App</title>
   <style>
-    .iframe-container {
-      position: relative;
+    /* Remove all margins and make html/body fill the window */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       width: 100%;
-      height: 1000px;
+      overflow: hidden;  /* Hide the wrapper’s scrollbars */
     }
+    /* Pin this container to cover the entire viewport */
+    .iframe-container {
+      position: fixed;
+      top:   0;
+      left:  0;
+      right: 0;
+      bottom:0;
+    }
+    /* Make the iframe fill that container */
     .iframe {
-      width: 100%;
+      width:  100%;
       height: 100%;
       border: none;
     }
@@ -20,7 +32,7 @@
 <body>
   <div class="iframe-container">
     <iframe
-      src="https://invoice-chats.streamlit.app/?embed=true" 
+      src="https://invoice-chats.streamlit.app/?embed=true"
       class="iframe"
     ></iframe>
   </div>
